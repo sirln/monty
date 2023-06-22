@@ -13,10 +13,10 @@ void op_push(stack_t **stack, size_t line_number)
 
 	new_stack = malloc(sizeof(stack_t));
 	if (!new_stack)
-		return (NULL);
+		return;
 
 	new_stack->n = line_number;
-	new_list->prev = NULL;
+	new_stack->prev = NULL;
 	if (!*stack)
 		new_stack->next = NULL;
 	else
@@ -35,13 +35,13 @@ void op_push(stack_t **stack, size_t line_number)
   */
 void op_pall(stack_t **h)
 {
-        if (*h == NULL)
-                return;
-        while (*h)
-        {
-                printf("%i\n", (*h)->n);
-                *h = (*h)->next;
-        }
+	if (*h == NULL)
+		return;
+	while (*h)
+	{
+		printf("%i\n", (*h)->n);
+		*h = (*h)->next;
+	}
 }
 
 /**
