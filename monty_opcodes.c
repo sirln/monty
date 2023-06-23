@@ -110,7 +110,32 @@ void op_add(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	element2->n = element1->n + element2->n;
+	element2->n = element2->n + element1->n;
+	*stack = element2;
+	element2->prev = NULL;
+	free(element1);
+
+}
+
+
+
+/**
+  * op_sub - subtracts the top 2 element of the stack
+  *
+  * @stack: pointer to pointer to the top of stack
+  * @line_number: the line number
+  *
+  */
+void op_sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *element1 = *stack, *element2 = (*stack)->next;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	element2->n = element2->n - element1->n;
 	*stack = element2;
 	element2->prev = NULL;
 	free(element1);

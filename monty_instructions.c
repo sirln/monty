@@ -18,6 +18,7 @@ void get_instruction(stack_t **stack, unsigned int l)
 			{"pop", op_pop},
 			{"swap", op_swap},
 			{"add", op_add},
+			{"sub", op_sub},
 			{NULL, NULL}
 	};
 	int i = 0;
