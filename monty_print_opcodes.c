@@ -28,9 +28,14 @@ void op_pall(stack_t **stack, unsigned int line_number)
 **/
 void op_pint(stack_t **stack, unsigned int line_number)
 {
-	if (!(*stack)||(*stack)->next == NULL )
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n < INT_MIN || (*stack)->n > INT_MAX)
+	{
+		fprintf(stderr, "L%u: integer overflow\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
