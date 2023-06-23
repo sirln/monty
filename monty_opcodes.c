@@ -133,7 +133,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
-	node2 = element1->next;
+	element2 = element1->next;
 	if (element2 == NULL)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n",
