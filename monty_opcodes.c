@@ -130,7 +130,12 @@ void op_sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *element1 = *stack, *element2 = (*stack)->next;
 
-	if (*stack == NULL && (*stack)->next == NULL)
+	if (element1 == NULL)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (element2 == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
