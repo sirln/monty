@@ -10,7 +10,7 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack;
-\	size_t value;
+	int value;
 
 	if (g_var.op_code_tokens[1] == NULL)
 	{
