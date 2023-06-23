@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	stack_t *head = NULL;
 	FILE *file;
 	ssize_t char_read;
-	char *content = NULL, *delimiters = " \n\t\r";
+	char *content = NULL, *delimiters = "; \n\t\r";
 	size_t size = 0;
 	unsigned int line_number = 1;
 
