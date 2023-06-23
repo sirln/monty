@@ -45,7 +45,7 @@ typedef struct instruction_s
 /**
   * struct global_var - storing a variable here
   *
-  * @optoks: lines of opcode stored here
+  * @op_code_tokens: lines of opcode stored here
   *
   * Description: variable to be used in multiple functions
   *
@@ -56,13 +56,12 @@ typedef struct global_var
 } global_var_t;
 
 /* global variable */
-extern global_var_t g_var;
+global_var_t g_var;
 
 int main(int argc, char **agrv);
 
 
 /* get opcodes */
-/*void (*get_instruction(char *opcode, unsigned int l))(stack_t **s, unsigned int);*/
 void get_instruction(stack_t **stack, unsigned int l);
 
 

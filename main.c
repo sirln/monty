@@ -1,6 +1,5 @@
 #include "monty.h"
 
-global_var_t g_var;
 /**
   *main - program start
   *
@@ -12,12 +11,10 @@ global_var_t g_var;
   */
 int main(int argc, char **argv)
 {
-	/*void (*get_opcode_function)(stack_t **, unsigned int);*/
 	stack_t *head = NULL;
 	FILE *file;
 	ssize_t char_read;
-	char *content = NULL;
-	char *delimiters = " \n\t\r";
+	char *content = NULL, *delimiters = " \n\t\r";
 	size_t size = 0;
 	unsigned int line_number = 1;
 
@@ -33,12 +30,9 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
-
 	while ((char_read = getline(&content, &size, file)) != -1)
 	{
 		g_var.op_code_tokens = tokenize_string(content, delimiters);
-		/*printf("L%d: %s\n", line_number, g_var.op_code_tokens[1]);*/
 		if (g_var.op_code_tokens[0] != NULL)
 		{
 			if (g_var.op_code_tokens[0][0] == '#')
@@ -52,7 +46,6 @@ int main(int argc, char **argv)
 			}
 		}
 		free(g_var.op_code_tokens);
-
 		line_number++;
 	}
 	free(content);

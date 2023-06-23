@@ -91,10 +91,10 @@ void op_pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
-	printf("%d",(*stack)->n);
+	printf("%d", (*stack)->n);
 	*stack = temp->next;
 	free(temp);
-	printf("%d",(*stack)->n);
+	printf("%d", (*stack)->n);
 }
 
 /**
@@ -102,9 +102,8 @@ void op_pop(stack_t **stack, unsigned int line_number)
  * @stack: pointer to pointer to the top of stack
  * @line_number: the line number
 **/
-void op_nop(stack_t **stack, unsigned int count)
+void op_nop(stack_t **stack, unsigned int line_number)
 {
-	(void) count;
+	(void) line_number;
 	(void) stack;
-	return;
 }
