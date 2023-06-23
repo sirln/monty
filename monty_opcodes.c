@@ -11,6 +11,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack;
 	int x = 0;
+	long value;
 
 	if (g_var.op_code_tokens[1] == NULL)
 	{
@@ -28,6 +29,9 @@ void op_push(stack_t **stack, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
+	value = atoll(g_var.op_code_tokens[1]);
+	if (value < INT_MIN || value > INT_MAX)
+		exit(EXIT_FAILURE);
 	new_stack = malloc(sizeof(stack_t));
 	if (!new_stack)
 	{
@@ -35,7 +39,8 @@ void op_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new_stack->n = atoi(g_var.op_code_tokens[1]);
+	/*new_stack->n = atoi(g_var.op_code_tokens[1]);*/
+	new_stack->n = (int)value;
 	new_stack->prev = NULL;
 	if (!*stack)
 		new_stack->next = NULL;
