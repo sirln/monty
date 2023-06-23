@@ -10,7 +10,7 @@
 void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_stack;
-	int value;
+	int x = 0;
 
 	if (g_var.op_code_tokens[1] == NULL)
 	{
@@ -18,13 +18,14 @@ void op_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	value = atoi(g_var.op_code_tokens[1]);
-	if (value == 0 && g_var.op_code_tokens[1][0] != '0')
+	for (; g_var.op_code_tokens[1][x]; x++)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		if (g_var.op_code_tokens[1][x] < '0' || g_var.op_code_tokens[1][x] > '9')
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 	}
-
 	new_stack = malloc(sizeof(stack_t));
 	if (!new_stack)
 	{
@@ -32,7 +33,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new_stack->n = value;
+	new_stack->n = atoi(g_var.op_code_tokens[1]);
 	new_stack->prev = NULL;
 	if (!*stack)
 		new_stack->next = NULL;
