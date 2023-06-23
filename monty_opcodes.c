@@ -20,6 +20,8 @@ void op_push(stack_t **stack, unsigned int line_number)
 
 	for (; g_var.op_code_tokens[1][x]; x++)
 	{
+		if (g_var.op_code_tokens[1][x] == '-' && x == 0)
+			continue;
 		if (g_var.op_code_tokens[1][x] < '0' || g_var.op_code_tokens[1][x] > '9')
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
