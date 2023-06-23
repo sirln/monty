@@ -118,32 +118,30 @@ void op_add(stack_t **stack, unsigned int line_number)
 }
 
 
-
 /**
-  * op_sub - subtracts the top 2 element of the stack
-  *
-  * @stack: pointer to pointer to the top of stack
-  * @line_number: the line number
-  *
-  */
+ * op_sub - subtracts top element of stack from second element of stack
+ * @stack: pointer to the stack
+ * @line_number: line where opcode appears
+ */
 void op_sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *element1 = *stack, *element2 = (*stack)->next;
+	stack_t *node1 = *stack, *node2;
 
-	if (element1 == NULL)
+	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (element2 == NULL)
+	node2 = node1->next;
+	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't sub, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
-	element2->n = element2->n - element1->n;
-	*stack = element2;
-	element2->prev = NULL;
-	free(element1);
-
+	node2->n -= node1->n;
+	*stack = node2;
+	node2->prev = NULL;
+	free(node1);
 }
-
