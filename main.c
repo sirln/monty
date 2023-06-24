@@ -41,9 +41,7 @@ int main(int argc, char **argv)
 				continue;
 			}
 			else
-			{
 				get_instruction(&head, line_number);
-			}
 		}
 		free(g_var.op_code_tokens);
 		line_number++;
@@ -67,9 +65,13 @@ char **tokenize_string(char *line, char *delim)
 	char **tokens = NULL, *token = NULL;
 	int i = 0;
 
+	if (!line)
+		return (NULL);
+
 	tokens = malloc(sizeof(char *) * 1024);
 	if (!tokens)
 	{
+		free(tokens);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
