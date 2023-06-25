@@ -45,6 +45,7 @@ typedef struct instruction_s
   * struct global_var - storing a variable here
   *
   * @op_code_tokens: lines of opcode stored here
+  * @structType: 0 = stack, 1 = queue
   *
   * Description: variable to be used in multiple functions
   *
@@ -52,6 +53,7 @@ typedef struct instruction_s
 typedef struct global_var
 {
 	char **op_code_tokens;
+	int structType;
 } global_var_t;
 
 /* global variable */
@@ -73,7 +75,8 @@ void get_instruction(stack_t **stack, unsigned int l);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
 void op_pop(stack_t **stack, unsigned int line_number);
-
+void op_stack(stack_t **stack, unsigned int line_number);
+void op_queue(stack_t **stack, unsigned int line_number);
 /* print opcodes */
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);

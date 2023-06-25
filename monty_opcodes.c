@@ -4,7 +4,7 @@
   *op_push - adds a new element at the top of the stack.
   *
   *@stack: pointer to pointer to top of the stack
-  *@line_number: element to add to the stack
+  *@line_number: opcode line number
   *
   */
 void op_push(stack_t **stack, unsigned int line_number)
@@ -52,7 +52,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 /**
  * op_pop - Removes the top element of the stack
  * @stack: pointer to pointer to the top of stack
- * @line_number: the line number
+ * @line_number: opcode line number
 **/
 void op_pop(stack_t **stack, unsigned int line_number)
 {
@@ -75,7 +75,7 @@ void op_pop(stack_t **stack, unsigned int line_number)
   * op_swap - adds the top 2 element of the stack
   *
   * @stack: pointer to pointer to the top of stack
-  * @line_number: the line number
+  * @line_number: opcode line number
   *
   */
 void op_swap(stack_t **stack, unsigned int line_number)
@@ -91,4 +91,33 @@ void op_swap(stack_t **stack, unsigned int line_number)
 	temp_data = temp->n;
 	temp->n = temp->next->n;
 	temp->next->n = temp_data;
+}
+
+
+/**
+  * op_stack - set the stack format to Stack (LIFO)
+  *
+  * @stack: pointer to pointer to the top/begining of stack/data
+  * @line_number: opcode line number
+  *
+  */
+void op_stack(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	(void)stack;
+	g_var.structType = 0;
+}
+
+/**
+  * op_queue - set the data format to Queue/FIFO
+  *
+  * @stack: pointer to pointer to the begining of queue/data
+  * @line_number: opcode line number
+  *
+  */
+void op_queue(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	(void)stack;
+	g_var.structType = 1;
 }

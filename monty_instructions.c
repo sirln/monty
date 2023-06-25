@@ -25,6 +25,8 @@ void get_instruction(stack_t **stack, unsigned int l)
 			{"mod", op_mod},
 			{"pchar", op_pchar},
 			{"pstr", op_pstr},
+			{"stack", op_stack},
+			{"queue", op_queue},
 			{NULL, NULL}
 	};
 	int i = 0;
