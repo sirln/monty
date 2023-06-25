@@ -12,14 +12,14 @@ void op_add(stack_t **stack, unsigned int line_number)
 
 	if (element1 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		free(element1);
 		exit(EXIT_FAILURE);
 	}
 	element2 = element1->next;
 	if (element2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		free(element2);
 		exit(EXIT_FAILURE);
 	}
@@ -73,14 +73,14 @@ void op_mul(stack_t **stack, unsigned int line_number)
 
 	if (element1 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		free(element1);
 		exit(EXIT_FAILURE);
 	}
 	element2 = element1->next;
 	if (element2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		free(element2);
 		exit(EXIT_FAILURE);
 	}
@@ -102,14 +102,14 @@ void op_div(stack_t **stack, unsigned int line_number)
 
 	if (element1 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		free(element1);
 		exit(EXIT_FAILURE);
 	}
 	element2 = element1->next;
 	if (element2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		free(element2);
 		exit(EXIT_FAILURE);
 	}
@@ -138,14 +138,14 @@ void op_mod(stack_t **stack, unsigned int line_number)
 
 	if (element1 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
 		free(element1);
 		exit(EXIT_FAILURE);
 	}
 	element2 = element1->next;
 	if (element2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
 		free(element2);
 		exit(EXIT_FAILURE);
 	}
