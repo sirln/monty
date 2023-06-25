@@ -57,7 +57,7 @@ typedef struct global_var
 } global_var_t;
 
 /* global variable */
-global_var_t g_var;
+extern global_var_t g_var;
 
 int main(int argc, char **agrv);
 
