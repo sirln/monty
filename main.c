@@ -40,13 +40,13 @@ int main(int argc, char **argv)
 				free(g_var.op_code_tokens);
 				continue;
 			}
-			else
-				get_instruction(&head, line_number);
+			get_instruction(&head, line_number);
 		}
 		free(g_var.op_code_tokens);
 		line_number++;
 	}
 	free(content);
+	free_stack(head);
 	fclose(file);
 	return (0);
 }
@@ -84,4 +84,23 @@ char **tokenize_string(char *line, char *delim)
 	}
 	tokens[i] = NULL;
 	return (tokens);
+}
+
+
+/**
+  *free_stack - frees stack.
+  *
+  *@head: pointer to the head of the list
+  *
+  */
+void free_stack(stack_t *head)
+{
+	stack_t *temp;
+
+	while (head)
+	{
+		temp = head->next;
+		free(head);
+		head = temp;
+	}
 }

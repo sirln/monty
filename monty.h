@@ -59,6 +59,11 @@ global_var_t g_var;
 
 int main(int argc, char **agrv);
 
+/* tokenize file line */
+char **tokenize_string(char *line, char *delim);
+
+/* free stack */
+void free_stack(stack_t *head);
 
 /* get opcodes */
 void get_instruction(stack_t **stack, unsigned int l);
@@ -83,8 +88,5 @@ void op_sub(stack_t **stack, unsigned int line_number);
 void op_mul(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
 void op_mod(stack_t **stack, unsigned int line_number);
-
-/* tokenize file line */
-char **tokenize_string(char *line, char *delim);
 
 #endif
